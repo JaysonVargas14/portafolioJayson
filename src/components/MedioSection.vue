@@ -1,50 +1,79 @@
 <template>
   <main>
     <div class="titulo-inicio">
-      <h1>Sobre mí</h1>
-      <p>
-        ¡Bienvenido!, Soy Jayson Vargas, un apasionado Desarrollador de
-        Software, con una gran pasión por la tecnología y la innovación. Mi
-        objetivo es crear soluciones digitales que no solo respondan a las
-        necesidades actuales, sino que también aborden los desafíos futuros con
-        creatividad y agilidad.
-      </p>
+      <h1>Experiencia</h1>
+      <!--Se llama a toggleContent pasando el nombre de la sección correspondiente-->
+      <button class="botonverMas" @click="toggleContent('experiencia')">
+        <!-- Aquí se pone operador ternario, se evalúa con true o false, si es true retorna lo primero, si no, lo segundo-->
+        {{ showContent.experiencia ? "Ver menos" : "Ver más" }}
+      </button>
+      <transition name="fade">
+        <ul v-if="showContent.experiencia" class="descripcion">
+          <li>Vue.js</li>
+          <li>Bootstrap</li>
+          <li>Javascript</li>
+          <li>Voiceflow</li>
+        </ul>
+      </transition>
     </div>
+
     <div class="titulo-inicio">
       <h1>Sobre mí</h1>
-      <p>
-        ¡Bienvenido!, Soy Jayson Vargas, un apasionado Desarrollador de
-        Software, con una gran pasión por la tecnología y la innovación. Mi
-        objetivo es crear soluciones digitales que no solo respondan a las
-        necesidades actuales, sino que también aborden los desafíos futuros con
-        creatividad y agilidad.
-      </p>
+      <button class="botonverMas" @click="toggleContent('sobreMi')">
+        {{ showContent.sobreMi ? "Ver menos" : "Ver más" }}
+      </button>
+      <transition name="fade">
+        <p v-if="showContent.sobreMi" class="descripcion">
+          ¡Bienvenido!, Soy Jayson Vargas, un apasionado Desarrollador de
+          Software, con una gran pasión por la tecnología y la innovación. Mi
+          objetivo es crear soluciones digitales que no solo respondan a las
+          necesidades actuales, sino que también aborden los desafíos futuros
+          con creatividad y agilidad.
+        </p>
+      </transition>
     </div>
+
     <div class="titulo-inicio">
       <h1>Habilidades</h1>
-      <p>
-        ¡Bienvenido!, Soy Jayson Vargas, un apasionado Desarrollador de
-        Software, con una gran pasión por la tecnología y la innovación. Mi
-        objetivo es crear soluciones digitales que no solo respondan a las
-        necesidades actuales, sino que también aborden los desafíos futuros con
-        creatividad y agilidad.
-      </p>
+      <button class="botonverMas" @click="toggleContent('hola')">
+        {{ showContent.hola ? "Ver menos" : "Ver más" }}
+      </button>
+      <transition name="fade">
+        <p v-if="showContent.hola" class="descripcion">
+          ¡Hola! Este es un mensaje de prueba.
+        </p>
+      </transition>
     </div>
   </main>
 </template>
 
 <script>
+const show = ref(true);
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import Carousel from "@/components/Carousel.vue";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { ref } from "vue";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export default {
   name: "MedioSection",
   components: {
     FontAwesomeIcon,
     Carousel,
+  },
+  setup() {
+    const showContent = ref({
+      experiencia: false,
+      sobreMi: false,
+      hola: false,
+    });
+
+    /**Aquí, recibe el nombre de la sección como argumento y cambia el estado true a false o viceversa */
+    const toggleContent = (section) => {
+      showContent.value[section] = !showContent.value[section];
+    };
+    return { showContent, toggleContent };
   },
 };
 </script>
@@ -53,68 +82,57 @@ export default {
 main {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Dos columnas de igual tamaño */
-  grid-template-rows: repeat(3, 1fr); /* Dos filas de igual tamaño */
+  grid-template-rows: auto;
   gap: 10px; /* Espacio entre los elementos */
+  height: 100vh;
 }
 
 .titulo-inicio {
-  margin-top: 100px;
-  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Centra el contenido verticalmente */
+  align-items: center;
   text-align: center;
-  margin: 20px 0;
+  width: 400px;
   color: white;
+  margin-top: 20px;
 }
 
 .titulo-inicio h1 {
   font-size: 80px;
+  margin: 0;
 }
 
-.parrafoBienvenida {
-  color: white;
-  opacity: 0.7;
-}
-
-.planetaInicio {
-  display: flex;
-  position: fixed;
-  justify-content: center;
-  right: 15px;
-  top: 50px;
-}
-
-.planetaInicio img {
-  height: 700px;
-  transform: rotate(30deg);
-}
-
-.botonesInicio {
+.botones-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  width: 500px;
-  height: 50px;
+  gap: 10px; /* Espacio entre los botones */
 }
 
-.botonTicket {
+.botonverMas {
+  position: relative;
+  justify-content: space-between;
   border: none;
-  width: 100%;
-  height: 100%;
+  width: 300px;
   padding: 15px;
-  background-color: var(--color-azul);
+  background-color: var(--color-verde);
   color: var(--color-blanco);
   cursor: pointer;
-  margin: 5px 5px 5px 5px;
+  margin-top: 10px; /* Espacio entre el título y el botón */
 }
 
-.botonTicket span {
+.botonVerMas,
+.botonverMas span {
   transition: 0.4s ease-in-out all;
   position: relative;
   justify-content: center;
+  text-align: center;
   right: 0%;
 }
 
-.botonTicket .icono {
+.botonVerMas,
+.botonverMas .icono {
   display: flex;
   align-items: center;
   position: absolute;
@@ -124,24 +142,39 @@ main {
   opacity: 0;
 }
 
-.botonTicket svg {
+.botonVerMas,
+.botonverMas svg {
   color: var(--color-blanco);
   width: 35px;
   height: 35px;
 }
 
-.botonTicket:hover {
-  background-color: var(--color-azul-hover);
+.botonverMas:hover {
+  background-color: var(--color-verde-hover);
   transition: 0.5s;
 }
 
-.botonTicket:hover .icono {
+.botonVerMas:hover .icono {
   left: calc(100% - 50px);
   opacity: 1;
 }
 
-.botonTicket:hover span {
+.botonVerMas:hover span {
   right: 50px;
+}
+.descripcion {
+  margin-top: 50px; /* Espacio entre los botones y la descripción */
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateX(50%);
 }
 
 .botonDestino {

@@ -307,6 +307,7 @@ export default {
   height: 50px; /* Ajusta la altura del botón */
   border-radius: 50%; /* Hace que el botón sea circular */
   overflow: hidden;
+  margin: 30px 30px 30px 30px;
 }
 .botonIniciar:hover span {
   right: 50px;
