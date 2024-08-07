@@ -82,9 +82,9 @@ export default {
 main {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Dos columnas de igual tamaño */
-  grid-template-rows: auto;
   gap: 10px; /* Espacio entre los elementos */
   height: 100vh;
+  justify-content: center;
 }
 
 .titulo-inicio {
@@ -95,7 +95,9 @@ main {
   text-align: center;
   width: 400px;
   color: white;
-  margin-top: 20px;
+  margin-top: 90px;
+  position: relative;
+  transform: translateX(-10%); /*Centrado */
 }
 
 .titulo-inicio h1 {
@@ -217,11 +219,5 @@ main {
 
 .botonDestino:hover rect {
   stroke-dashoffset: 0;
-}
-
-.carruselPrincipal {
-  position: absolute;
-  top: 60px;
-  transform: translateX(600px);
 }
 </style>
