@@ -10,6 +10,7 @@
 
 <script>
 import Header from "./components/Header.vue";
+import "animate.css";
 
 export default {
   components: {

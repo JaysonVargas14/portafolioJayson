@@ -1,10 +1,15 @@
 <template>
   <main>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
     <div class="titulo-inicio">
-      <h1>¡Hola!</h1>
+      <h2>¡Hola! Soy</h2>
       <!--Soy desarrollador de software-->
-      <p class="nombreTexto">----- Soy Jayson Vargas</p>
-      <p class="parrafoBienvenida">Desarrollador de software</p>
+      <h1 class="nombreTexto">Jayson Vargas</h1>
+      <h2 class="parrafoBienvenida">Desarrollador de software</h2>
     </div>
 
     <div class="planetaInicio" alt="FotoPersonal">
@@ -26,31 +31,29 @@
       </button>
     </div>
 
-    <div class="fraseInicial">
-      <font-awesome-icon icon="play" class="iconoFlecha" />
-      <!--Modificar de mejor manera esto, otra frase-->
-      <div class="botonesFrase">
-        <ul>
-          <li>
-            <router-link to="/">
-              <font-awesome-icon icon="play" class="iconoFlecha" />
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/">
-              <font-awesome-icon icon="play" class="iconoFlecha" />
-            </router-link>
-          </li>
-        </ul>
-      </div>
+    <div class="scrollVerMas animate__animated animate__bounce">
+      <font-awesome-icon
+        icon="angles-down"
+        class="iconoScroll"
+      ></font-awesome-icon>
+      <p>Scrollea para ver más</p>
     </div>
-
     <div class="contenedorBotonIniciar">
-      <button type="submit" class="botonIniciar">
+      <button
+        type="submit"
+        class="botonIniciar animate__animated animate__swing"
+      >
         <div class="icono">
           <font-awesome-icon icon="play" class="iconoFlecha" />
         </div>
       </button>
+    </div>
+
+    <div class="redesSociales">
+      <i class="fa-brands fa-github"></i>
+      <i class="fa-brands fa-linkedin-in"></i>
+      <i class="fa-brands fa-whatsapp"></i>
+      <i class="fa-regular fa-envelope"></i>
     </div>
     <!--Datalist hace que esten las opciones abajo como del historial
     <input list="planetas" />
@@ -67,11 +70,14 @@
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
+import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
+
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import MedioSection from "./MedioSection.vue";
 
-library.add(faMagnifyingGlass, faArrowLeft, faPlay);
+library.add(faMagnifyingGlass, faArrowLeft, faPlay, faAnglesDown, faGithubAlt);
 /*library.add(faArrowLeft);*/
 
 export default {
@@ -84,38 +90,39 @@ export default {
 
 <style scoped>
 .titulo-inicio {
-  width: 500px;
-  text-align: start;
-  text-align: justify;
-  margin: 20px 0;
+  width: 1000px;
+  position: relative;
+  bottom: 50px; /**Posición del titulo inicial */
+  margin-left: -100px;
+  margin-bottom: 90px; /**Separacion con botón */
   color: white;
 }
 
-.titulo-inicio h1 {
-  font-size: 100px;
+.titulo-inicio h2 {
+  font-size: 80px;
+  margin-bottom: -60px;
 }
 
 .titulo-inicio .nombreTexto {
-  font-size: 30px;
+  font-size: 150px;
   font-weight: 400;
+  margin-bottom: -60px;
 }
 
 .parrafoBienvenida {
   color: white;
-  opacity: 0.7;
 }
 
 .planetaInicio {
   display: flex;
   position: absolute;
   justify-content: center;
-  right: 15px;
-  top: 50px;
+  right: -100px; /**Se mueve hacia la derecha la imagen */
+  top: 30px;
 }
 
 .planetaInicio img {
   height: 700px;
-  transform: rotate(30deg);
 }
 
 .botonesInicio {
@@ -125,6 +132,9 @@ export default {
   text-align: center;
   width: 500px;
   height: 50px;
+  position: relative;
+  bottom: 80px; /**Posicion de los botones, cercanos al título */
+  right: 100px;
 }
 
 .botonTicket {
@@ -230,9 +240,6 @@ export default {
   stroke-dashoffset: 0.8;
 }
 
-.botonIniciar {
-  font: optional;
-}
 .fraseInicial {
   color: var(--color-blanco);
   overflow: hidden;
@@ -271,14 +278,17 @@ export default {
   margin: 0;
 }
 
-.fraseInicial .botonesFrase a {
-  text-decoration: none;
-  color: var(--color-blanco);
-  transition: color 0.3s;
+.scrollVerMas {
+  display: flex;
+  position: absolute;
+  left: 100px;
+  cursor: pointer;
+  bottom: 25px;
 }
 
-.fraseInicial .botonesFrase button:hover {
-  cursor: pointer;
+.scrollVerMas .iconoScroll {
+  height: 30px;
+  margin-right: 15px;
 }
 
 .contenedorBotonIniciar {
@@ -287,9 +297,8 @@ export default {
   justify-content: center;
   align-items: center;
   bottom: 0;
-  margin-bottom: 10px;
+  bottom: 10px;
   left: 50%;
-  transform: translateX(50%);
 }
 
 .botonIniciar {
@@ -331,5 +340,21 @@ export default {
 .botonIniciar:hover {
   background-color: var(--color-verde-hover);
   transition: 0.5s;
+}
+
+.redesSociales {
+  display: flex;
+  position: relative;
+  justify-content: end;
+  top: 50px;
+  left: 130px;
+}
+
+.redesSociales i {
+  color: var(--color-blanco);
+  opacity: 0.7;
+  margin-right: 30px;
+  font-size: 20px;
+  cursor: pointer;
 }
 </style>

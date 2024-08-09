@@ -94,6 +94,7 @@ export default {
 }
 
 .navegacion ul {
+  font-family: Arial, serif;
   list-style: none;
   display: flex;
   padding: 0;
@@ -101,10 +102,13 @@ export default {
 }
 
 .navegacion li {
+  font-family: Arial, serif;
   margin: 0 15px;
 }
 
 .navegacion a {
+  font-family: Arial, serif;
+
   text-decoration: none;
   color: gray;
   transition: color 0.3s;
