@@ -31,17 +31,34 @@
       </button>
     </div>
 
+<<<<<<< HEAD
     <div class="scrollVerMas animate__animated animate__bounce">
+=======
+    <div
+      class="scrollVerMas animate__animated animate__bounce"
+      @click="scrollToMedioSection"
+    >
+>>>>>>> master
       <font-awesome-icon
         icon="angles-down"
         class="iconoScroll"
       ></font-awesome-icon>
       <p>Scrollea para ver más</p>
     </div>
+<<<<<<< HEAD
+=======
+
+    <MedioSection ref="medioSection" />
+
+>>>>>>> master
     <div class="contenedorBotonIniciar">
       <button
         type="submit"
         class="botonIniciar animate__animated animate__swing"
+<<<<<<< HEAD
+=======
+        @click="scrollToMedioSection"
+>>>>>>> master
       >
         <div class="icono">
           <font-awesome-icon icon="play" class="iconoFlecha" />
@@ -50,10 +67,25 @@
     </div>
 
     <div class="redesSociales">
+<<<<<<< HEAD
       <i class="fa-brands fa-github"></i>
       <i class="fa-brands fa-linkedin-in"></i>
       <i class="fa-brands fa-whatsapp"></i>
       <i class="fa-regular fa-envelope"></i>
+=======
+      <a href="https://github.com/JaysonV145" target="_blank">
+        <i class="fa-brands fa-github"></i
+      ></a>
+      <a href="https://www.linkedin.com/in/jayson-vargas" target="_blank">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a href="https://wa.link/8eu07e" target="_blank"
+        ><i class="fa-brands fa-whatsapp"></i
+      ></a>
+      <a href="mailto:vjaison30@gmail.com" target="_blank"
+        ><i class="fa-regular fa-envelope"></i
+      ></a>
+>>>>>>> master
     </div>
     <!--Datalist hace que esten las opciones abajo como del historial
     <input list="planetas" />
@@ -72,10 +104,17 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
+<<<<<<< HEAD
 
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import MedioSection from "./MedioSection.vue";
+=======
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import MedioSection from "./MedioSection/MedioSection.vue";
+import MainLayout from "./MainLayout.vue";
+>>>>>>> master
 
 library.add(faMagnifyingGlass, faArrowLeft, faPlay, faAnglesDown, faGithubAlt);
 /*library.add(faArrowLeft);*/
@@ -84,6 +123,16 @@ export default {
   name: "TitleSection",
   components: {
     FontAwesomeIcon,
+<<<<<<< HEAD
+=======
+    MedioSection,
+  },
+  methods: {
+    scrollToMedioSection() {
+      const medioSection = this.$refs.medioSection.$el;
+      medioSection.scrollIntoView({ behavior: "smooth" });
+    },
+>>>>>>> master
   },
 };
 </script>
@@ -289,6 +338,32 @@ export default {
 .scrollVerMas .iconoScroll {
   height: 30px;
   margin-right: 15px;
+<<<<<<< HEAD
+=======
+  animation: animacionBotonScroll 2s infinite; /**Duración animacion */
+}
+
+@keyframes animacionBotonScroll {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(
+      0
+    ); /**Los porcentajes son como paradas en la animación, en estos momentos el elemento no se moverá y estara en su posición original */
+  }
+  40% {
+    transform: translateY(
+      -15px
+    ); /**En este punto la animación, el elemento se moverá 10px hacia arriba */
+  }
+  60% {
+    transform: translateY(
+      -10px
+    ); /**El elemento se moverá hacia arriba 5 pixeles, este es un rebote mas pequeño */
+  }
+>>>>>>> master
 }
 
 .contenedorBotonIniciar {
@@ -317,6 +392,44 @@ export default {
   border-radius: 50%; /* Hace que el botón sea circular */
   overflow: hidden;
 }
+<<<<<<< HEAD
+=======
+
+.botonIniciar:hover {
+  animation: jello-horizontal 0.9s both;
+}
+
+@keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+>>>>>>> master
 .botonIniciar:hover span {
   right: 50px;
 }
@@ -346,15 +459,31 @@ export default {
   display: flex;
   position: relative;
   justify-content: end;
+<<<<<<< HEAD
   top: 50px;
   left: 130px;
+=======
+  bottom: 320px;
+  left: 110px;
+>>>>>>> master
 }
 
 .redesSociales i {
   color: var(--color-blanco);
   opacity: 0.7;
+<<<<<<< HEAD
   margin-right: 30px;
   font-size: 20px;
   cursor: pointer;
 }
+=======
+  margin-right: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.redesSociales a {
+  background-color: transparent;
+}
+>>>>>>> master
 </style>
