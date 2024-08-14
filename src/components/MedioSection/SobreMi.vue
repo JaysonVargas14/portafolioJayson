@@ -1,18 +1,31 @@
 <template>
   <div class="section">
     <transition name="fade">
-      <div v-if="showContent" class="section-content">
-        <h1>Experiencia</h1>
-        <button class="botonverMas" @click="toggleContent('experiencia')">
-          {{ showContent.experiencia ? "Ver menos" : "Ver más" }}
+      <div v-if="isVisible" class="section-content">
+        <h1>Sobre Mi</h1>
+        <button class="botonverMas" @click="toggleSection">
+          {{ isCurrentSection ? "Ver menos" : "Ver más" }}
         </button>
         <transition name="fade">
-          <ul v-if="showContent.experiencia" class="descripcion">
-            <li>Vue.js</li>
-            <li>Bootstrap</li>
-            <li>Javascript</li>
-            <li>Voiceflow</li>
-          </ul>
+          <p v-if="isCurrentSection" class="descripcion">
+            Soy un desarrollador front-end apasionado por crear experiencias
+            digitales intuitivas, innovadoras y visualmente impactantes. Con una
+            sólida base en Vue.js y otras tecnologías modernas, me especializo
+            en transformar ideas complejas en interfaces de usuario fluidas y
+            funcionales. Mi enfoque está en la reactividad, la optimización del
+            rendimiento y la usabilidad, asegurándome de que cada proyecto no
+            solo luzca bien, sino que también ofrezca una experiencia de usuario
+            excepcional. Mi trabajo abarca desde landing pages dinámicas hasta
+            aplicaciones web interactivas, siempre con un enfoque en la
+            innovación tecnológica y la resolución de problemas. Estoy
+            comprometido con el aprendizaje continuo y la adopción de mejores
+            prácticas, lo que me permite entregar código limpio, mantenible y
+            escalable. Aquí podrás explorar algunos de mis proyectos más
+            recientes, donde combino creatividad con habilidades técnicas para
+            dar vida a soluciones digitales que superan expectativas. Si buscas
+            un desarrollador dedicado que pueda llevar tus ideas al siguiente
+            nivel, ¡estoy aquí para ayudarte!
+          </p>
         </transition>
       </div>
     </transition>
@@ -23,7 +36,26 @@
 import { ref } from "vue";
 
 export default {
-  name: "ExperienceSection",
+  name: "SobreMi",
+  props: {
+    currentSection: {
+      type: String,
+      required: true,
+    },
+  },
+  computed: {
+    isCurrentSection() {
+      return this.currentSection === "sobreMi";
+    },
+    isVisible() {
+      return this.currentSection === "" || this.isCurrentSection;
+    },
+  },
+  methods: {
+    toggleSection() {
+      this.$emit("toggleSection", "sobreMi");
+    },
+  },
   setup() {
     const showContent = ref({
       experiencia: false,

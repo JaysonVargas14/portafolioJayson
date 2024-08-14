@@ -1,48 +1,42 @@
 <template>
   <main>
-    <div class="titulo-inicio">
-      <Experience></Experience>
-    </div>
+    <transition-group name="fade" tag="div" class="grid-container">
+      <div
+        v-if="currentSection === '' || currentSection === 'experience'"
+        :key="'experience-' + currentSection"
+        :class="['titulo-inicio', { focus: currentSection === 'experience' }]"
+      >
+        <Experience
+          :currentSection="currentSection"
+          sectionName="experience"
+          @toggleSection="toggleSection"
+        />
+      </div>
 
-    <div class="titulo-inicio">
-      <h1>Sobre mí</h1>
-      <button class="botonverMas" @click="toggleContent('sobreMi')">
-        {{ showContent.sobreMi ? "Ver menos" : "Ver más" }}
-      </button>
-      <transition name="fade">
-        <p v-if="showContent.sobreMi" class="descripcion">
-          Soy un desarrollador front-end apasionado por crear experiencias
-          digitales intuitivas, innovadoras y visualmente impactantes. Con una
-          sólida base en Vue.js y otras tecnologías modernas, me especializo en
-          transformar ideas complejas en interfaces de usuario fluidas y
-          funcionales. Mi enfoque está en la reactividad, la optimización del
-          rendimiento y la usabilidad, asegurándome de que cada proyecto no solo
-          luzca bien, sino que también ofrezca una experiencia de usuario
-          excepcional. Mi trabajo abarca desde landing pages dinámicas hasta
-          aplicaciones web interactivas, siempre con un enfoque en la innovación
-          tecnológica y la resolución de problemas. Estoy comprometido con el
-          aprendizaje continuo y la adopción de mejores prácticas, lo que me
-          permite entregar código limpio, mantenible y escalable. Aquí podrás
-          explorar algunos de mis proyectos más recientes, donde combino
-          creatividad con habilidades técnicas para dar vida a soluciones
-          digitales que superan expectativas. Si buscas un desarrollador
-          dedicado que pueda llevar tus ideas al siguiente nivel, ¡estoy aquí
-          para ayudarte!
-        </p>
-      </transition>
-    </div>
+      <div
+        v-if="currentSection === '' || currentSection === 'sobreMi'"
+        :key="'sobreMi-' + currentSection"
+        :class="['titulo-inicio', { focus: currentSection === 'sobreMi' }]"
+      >
+        <SobreMi
+          :currentSection="currentSection"
+          sectionName="sobreMi"
+          @toggleSection="toggleSection"
+        />
+      </div>
 
-    <div class="titulo-inicio">
-      <h1>Habilidades</h1>
-      <button class="botonverMas" @click="toggleContent('hola')">
-        {{ showContent.hola ? "Ver menos" : "Ver más" }}
-      </button>
-      <transition name="fade">
-        <p v-if="showContent.hola" class="descripcion">
-          ¡Hola! Este es un mensaje de prueba.
-        </p>
-      </transition>
-    </div>
+      <div
+        v-if="currentSection === '' || currentSection === 'habilidades'"
+        :key="'habilidades-' + currentSection"
+        :class="['titulo-inicio', { focus: currentSection === 'habilidades' }]"
+      >
+        <Habilidades
+          :currentSection="currentSection"
+          sectionName="habilidades"
+          @toggleSection="toggleSection"
+        />
+      </div>
+    </transition-group>
   </main>
 </template>
 
@@ -51,29 +45,29 @@ const show = ref(true);
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import Carousel from "@/components/Carousel.vue";
 import { ref } from "vue";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Experience from "./Experience.vue";
+import SobreMi from "./SobreMi.vue";
+import Habilidades from "./Habilidades.vue";
 export default {
   name: "MedioSection",
   components: {
     FontAwesomeIcon,
     Carousel,
     Experience,
+    SobreMi,
+    Habilidades,
   },
   setup() {
-    const showContent = ref({
-      experiencia: false,
-      sobreMi: false,
-      hola: false,
-    });
+    const currentSection = ref("");
 
-    /**Aquí, recibe el nombre de la sección como argumento y cambia el estado true a false o viceversa */
-    const toggleContent = (section) => {
-      showContent.value[section] = !showContent.value[section];
+    const toggleSection = (section) => {
+      currentSection.value = currentSection.value === section ? "" : section;
     };
-    return { showContent, toggleContent };
+
+    return {
+      currentSection,
+      toggleSection,
+    };
   },
 };
 </script>
@@ -174,13 +168,35 @@ main {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.8s, transform 0.8s;
+  transition: opacity 0.5s ease;
 }
 
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
-  transform: translateX(50%);
+}
+
+/* Animación de enfoque para el componente seleccionado */
+.focus {
+  animation: focusAnimation 0.5s ease forwards;
+}
+
+@keyframes focusAnimation {
+  0% {
+    transform: scale(1) translateY(0); /* Sin cambio en el tamaño o posición inicial */
+  }
+  50% {
+    transform: scale(1.1) translateY(-5px); /* Aumenta el tamaño y eleva ligeramente */
+  }
+  100% {
+    transform: scale(1.05) translateY(0); /* Tamaño final y posición original */
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+  gap: 10px; /* Espacio entre los elementos */
 }
 
 .botonDestino {

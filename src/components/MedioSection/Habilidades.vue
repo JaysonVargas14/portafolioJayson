@@ -2,14 +2,17 @@
   <div class="section">
     <transition name="fade">
       <div v-if="isVisible" class="section-content">
-        <h1>Experiencia</h1>
+        <h1>Habilidades</h1>
         <button class="botonverMas" @click="toggleSection">
           {{ isCurrentSection ? "Ver menos" : "Ver más" }}
         </button>
         <transition name="fade">
-          <p v-if="isCurrentSection" class="descripcion">
-            Desarrollador de software. Practicas empresariales
-          </p>
+          <ul v-if="isCurrentSection" class="descripcion">
+            <li>Vue.js</li>
+            <li>Bootstrap</li>
+            <li>Javascript</li>
+            <li>Voiceflow</li>
+          </ul>
         </transition>
       </div>
     </transition>
@@ -20,7 +23,7 @@
 import { ref } from "vue";
 
 export default {
-  name: "Experience",
+  name: "habilidades",
   props: {
     currentSection: {
       type: String,
@@ -29,7 +32,7 @@ export default {
   },
   computed: {
     isCurrentSection() {
-      return this.currentSection === "experience";
+      return this.currentSection === "habilidades";
     },
     isVisible() {
       return this.currentSection === "" || this.isCurrentSection;
@@ -37,7 +40,7 @@ export default {
   },
   methods: {
     toggleSection() {
-      this.$emit("toggleSection", "experience");
+      this.$emit("toggleSection", "habilidades");
     },
   },
   setup() {

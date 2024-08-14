@@ -80,11 +80,14 @@ export default {
 
 <style scoped>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 body {
   background-color: var(--color-oscuro-fondo2);
 }
 >>>>>>> master
+=======
+>>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
 main {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Dos columnas de igual tamaño */
@@ -95,9 +98,12 @@ main {
 
 .titulo-inicio {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   /** Crear 3 componentes, cada uno tiene su animación individual, pero cada componente que tenga una transición de entrada */
 >>>>>>> master
+=======
+>>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Centra el contenido verticalmente */
@@ -106,10 +112,14 @@ main {
   width: 400px;
   color: white;
 <<<<<<< HEAD
+<<<<<<< HEAD
   margin-top: 90px;
 =======
   margin-top: 150px;
 >>>>>>> master
+=======
+  margin-top: 90px;
+>>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
   position: relative;
   transform: translateX(-10%); /*Centrado */
 }

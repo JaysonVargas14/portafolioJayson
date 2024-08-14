@@ -2,6 +2,7 @@
   <div class="containerPrincipal">
     <TitleSection></TitleSection>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <MedioSection></MedioSection>
     <ProjectSection></ProjectSection>
 =======
@@ -9,6 +10,10 @@
     <MedioSection></MedioSection>
     <ProjectsSection></ProjectsSection>
 >>>>>>> master
+=======
+    <MedioSection></MedioSection>
+    <ProjectSection></ProjectSection>
+>>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
   </div>
 </template>
 
@@ -20,11 +25,15 @@ import Home from "../view-logic/Home.js";
 
 import TitleSection from "../components/TitleSection.vue";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import MedioSection from "@/components/MedioSection.vue";
 =======
 import MedioSection from "@/components/MedioSection/MedioSection.vue";
 import ProjectsSection from "@/components/ProjectsSection.vue";
 >>>>>>> master
+=======
+import MedioSection from "@/components/MedioSection.vue";
+>>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
 import Carousel from "@/components/Carousel.vue";
 import ProjectSection from "@/components/ProjectSection.vue";
 
@@ -33,10 +42,14 @@ export default {
     TitleSection,
     MedioSection,
 <<<<<<< HEAD
+<<<<<<< HEAD
     ProjectSection,
 =======
     ProjectsSection,
 >>>>>>> master
+=======
+    ProjectSection,
+>>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
     Carousel,
   },
 };
