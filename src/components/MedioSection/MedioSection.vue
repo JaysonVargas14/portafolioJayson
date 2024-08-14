@@ -1,20 +1,7 @@
 <template>
   <main>
     <div class="titulo-inicio">
-      <h1>Experiencia</h1>
-      <!--Se llama a toggleContent pasando el nombre de la sección correspondiente-->
-      <button class="botonverMas" @click="toggleContent('experiencia')">
-        <!-- Aquí se pone operador ternario, se evalúa con true o false, si es true retorna lo primero, si no, lo segundo-->
-        {{ showContent.experiencia ? "Ver menos" : "Ver más" }}
-      </button>
-      <transition name="fade">
-        <ul v-if="showContent.experiencia" class="descripcion">
-          <li>Vue.js</li>
-          <li>Bootstrap</li>
-          <li>Javascript</li>
-          <li>Voiceflow</li>
-        </ul>
-      </transition>
+      <Experience></Experience>
     </div>
 
     <div class="titulo-inicio">
@@ -24,11 +11,23 @@
       </button>
       <transition name="fade">
         <p v-if="showContent.sobreMi" class="descripcion">
-          ¡Bienvenido!, Soy Jayson Vargas, un apasionado Desarrollador de
-          Software, con una gran pasión por la tecnología y la innovación. Mi
-          objetivo es crear soluciones digitales que no solo respondan a las
-          necesidades actuales, sino que también aborden los desafíos futuros
-          con creatividad y agilidad.
+          Soy un desarrollador front-end apasionado por crear experiencias
+          digitales intuitivas, innovadoras y visualmente impactantes. Con una
+          sólida base en Vue.js y otras tecnologías modernas, me especializo en
+          transformar ideas complejas en interfaces de usuario fluidas y
+          funcionales. Mi enfoque está en la reactividad, la optimización del
+          rendimiento y la usabilidad, asegurándome de que cada proyecto no solo
+          luzca bien, sino que también ofrezca una experiencia de usuario
+          excepcional. Mi trabajo abarca desde landing pages dinámicas hasta
+          aplicaciones web interactivas, siempre con un enfoque en la innovación
+          tecnológica y la resolución de problemas. Estoy comprometido con el
+          aprendizaje continuo y la adopción de mejores prácticas, lo que me
+          permite entregar código limpio, mantenible y escalable. Aquí podrás
+          explorar algunos de mis proyectos más recientes, donde combino
+          creatividad con habilidades técnicas para dar vida a soluciones
+          digitales que superan expectativas. Si buscas un desarrollador
+          dedicado que pueda llevar tus ideas al siguiente nivel, ¡estoy aquí
+          para ayudarte!
         </p>
       </transition>
     </div>
@@ -55,12 +54,13 @@ import { ref } from "vue";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-
+import Experience from "./Experience.vue";
 export default {
   name: "MedioSection",
   components: {
     FontAwesomeIcon,
     Carousel,
+    Experience,
   },
   setup() {
     const showContent = ref({
@@ -79,12 +79,9 @@ export default {
 </script>
 
 <style scoped>
-<<<<<<< HEAD
-=======
 body {
   background-color: var(--color-oscuro-fondo2);
 }
->>>>>>> master
 main {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Dos columnas de igual tamaño */
@@ -94,10 +91,7 @@ main {
 }
 
 .titulo-inicio {
-<<<<<<< HEAD
-=======
   /** Crear 3 componentes, cada uno tiene su animación individual, pero cada componente que tenga una transición de entrada */
->>>>>>> master
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Centra el contenido verticalmente */
@@ -105,11 +99,7 @@ main {
   text-align: center;
   width: 400px;
   color: white;
-<<<<<<< HEAD
-  margin-top: 90px;
-=======
   margin-top: 150px;
->>>>>>> master
   position: relative;
   transform: translateX(-10%); /*Centrado */
 }

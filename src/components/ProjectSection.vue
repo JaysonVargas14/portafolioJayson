@@ -1,24 +1,17 @@
 <template>
   <main>
+    <div class="tituloHabilidades">
+      <h1>Mis habilidades</h1>
+    </div>
     <div class="titulo-inicio">
-      <h1>Experiencia</h1>
-      <!--Se llama a toggleContent pasando el nombre de la sección correspondiente-->
-      <button class="botonverMas" @click="toggleContent('experiencia')">
-        <!-- Aquí se pone operador ternario, se evalúa con true o false, si es true retorna lo primero, si no, lo segundo-->
-        {{ showContent.experiencia ? "Ver menos" : "Ver más" }}
-      </button>
-      <transition name="fade">
-        <ul v-if="showContent.experiencia" class="descripcion">
-          <li>Vue.js</li>
-          <li>Bootstrap</li>
-          <li>Javascript</li>
-          <li>Voiceflow</li>
-        </ul>
-      </transition>
+      <h1>Html</h1>
+      <diV class="habilidadesGeneral">
+        <span>Html</span>
+      </diV>
     </div>
 
     <div class="titulo-inicio">
-      <h1>Sobre mí</h1>
+      <h1>CSS</h1>
       <button class="botonverMas" @click="toggleContent('sobreMi')">
         {{ showContent.sobreMi ? "Ver menos" : "Ver más" }}
       </button>
@@ -34,7 +27,7 @@
     </div>
 
     <div class="titulo-inicio">
-      <h1>Habilidades</h1>
+      <h1>JavaScript</h1>
       <button class="botonverMas" @click="toggleContent('hola')">
         {{ showContent.hola ? "Ver menos" : "Ver más" }}
       </button>
@@ -79,25 +72,17 @@ export default {
 </script>
 
 <style scoped>
-<<<<<<< HEAD
-=======
-body {
-  background-color: var(--color-oscuro-fondo2);
-}
->>>>>>> master
 main {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Dos columnas de igual tamaño */
-  gap: 10px; /* Espacio entre los elementos */
-  height: 50vh;
-  justify-content: center;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+
+.tituloHabilidades h1 {
+  font-size: 80px;
 }
 
 .titulo-inicio {
-<<<<<<< HEAD
-=======
-  /** Crear 3 componentes, cada uno tiene su animación individual, pero cada componente que tenga una transición de entrada */
->>>>>>> master
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Centra el contenido verticalmente */
@@ -105,17 +90,13 @@ main {
   text-align: center;
   width: 400px;
   color: white;
-<<<<<<< HEAD
   margin-top: 90px;
-=======
-  margin-top: 150px;
->>>>>>> master
   position: relative;
   transform: translateX(-10%); /*Centrado */
 }
 
 .titulo-inicio h1 {
-  font-size: 60px;
+  font-size: 80px;
   margin: 0;
 }
 

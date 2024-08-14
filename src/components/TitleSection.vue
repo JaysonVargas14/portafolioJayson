@@ -1,10 +1,15 @@
 <template>
   <main>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
     <div class="titulo-inicio">
-      <h1>¡Hola!</h1>
+      <h2>¡Hola! Soy</h2>
       <!--Soy desarrollador de software-->
-      <p class="nombreTexto">----- Soy Jayson Vargas</p>
-      <p class="parrafoBienvenida">Desarrollador de software</p>
+      <h1 class="nombreTexto">Jayson Vargas</h1>
+      <h2 class="parrafoBienvenida">Desarrollador de software</h2>
     </div>
 
     <div class="planetaInicio" alt="FotoPersonal">
@@ -26,31 +31,61 @@
       </button>
     </div>
 
-    <div class="fraseInicial">
-      <font-awesome-icon icon="play" class="iconoFlecha" />
-      <!--Modificar de mejor manera esto, otra frase-->
-      <div class="botonesFrase">
-        <ul>
-          <li>
-            <router-link to="/">
-              <font-awesome-icon icon="play" class="iconoFlecha" />
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/">
-              <font-awesome-icon icon="play" class="iconoFlecha" />
-            </router-link>
-          </li>
-        </ul>
-      </div>
+<<<<<<< HEAD
+    <div class="scrollVerMas animate__animated animate__bounce">
+=======
+    <div
+      class="scrollVerMas animate__animated animate__bounce"
+      @click="scrollToMedioSection"
+    >
+>>>>>>> master
+      <font-awesome-icon
+        icon="angles-down"
+        class="iconoScroll"
+      ></font-awesome-icon>
+      <p>Scrollea para ver más</p>
     </div>
+<<<<<<< HEAD
+=======
 
+    <MedioSection ref="medioSection" />
+
+>>>>>>> master
     <div class="contenedorBotonIniciar">
-      <button type="submit" class="botonIniciar">
+      <button
+        type="submit"
+        class="botonIniciar animate__animated animate__swing"
+<<<<<<< HEAD
+=======
+        @click="scrollToMedioSection"
+>>>>>>> master
+      >
         <div class="icono">
           <font-awesome-icon icon="play" class="iconoFlecha" />
         </div>
       </button>
+    </div>
+
+    <div class="redesSociales">
+<<<<<<< HEAD
+      <i class="fa-brands fa-github"></i>
+      <i class="fa-brands fa-linkedin-in"></i>
+      <i class="fa-brands fa-whatsapp"></i>
+      <i class="fa-regular fa-envelope"></i>
+=======
+      <a href="https://github.com/JaysonV145" target="_blank">
+        <i class="fa-brands fa-github"></i
+      ></a>
+      <a href="https://www.linkedin.com/in/jayson-vargas" target="_blank">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a href="https://wa.link/8eu07e" target="_blank"
+        ><i class="fa-brands fa-whatsapp"></i
+      ></a>
+      <a href="mailto:vjaison30@gmail.com" target="_blank"
+        ><i class="fa-regular fa-envelope"></i
+      ></a>
+>>>>>>> master
     </div>
     <!--Datalist hace que esten las opciones abajo como del historial
     <input list="planetas" />
@@ -67,55 +102,76 @@
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
+import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
+<<<<<<< HEAD
+
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import MedioSection from "./MedioSection.vue";
+=======
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import MedioSection from "./MedioSection/MedioSection.vue";
+import MainLayout from "./MainLayout.vue";
+>>>>>>> master
 
-library.add(faMagnifyingGlass, faArrowLeft, faPlay);
+library.add(faMagnifyingGlass, faArrowLeft, faPlay, faAnglesDown, faGithubAlt);
 /*library.add(faArrowLeft);*/
 
 export default {
   name: "TitleSection",
   components: {
     FontAwesomeIcon,
+<<<<<<< HEAD
+=======
+    MedioSection,
+  },
+  methods: {
+    scrollToMedioSection() {
+      const medioSection = this.$refs.medioSection.$el;
+      medioSection.scrollIntoView({ behavior: "smooth" });
+    },
+>>>>>>> master
   },
 };
 </script>
 
 <style scoped>
 .titulo-inicio {
-  width: 500px;
-  text-align: start;
-  text-align: justify;
-  margin: 20px 0;
+  width: 1000px;
+  position: relative;
+  bottom: 50px; /**Posición del titulo inicial */
+  margin-left: -100px;
+  margin-bottom: 90px; /**Separacion con botón */
   color: white;
 }
 
-.titulo-inicio h1 {
-  font-size: 100px;
+.titulo-inicio h2 {
+  font-size: 80px;
+  margin-bottom: -60px;
 }
 
 .titulo-inicio .nombreTexto {
-  font-size: 30px;
+  font-size: 150px;
   font-weight: 400;
+  margin-bottom: -60px;
 }
 
 .parrafoBienvenida {
   color: white;
-  opacity: 0.7;
 }
 
 .planetaInicio {
   display: flex;
   position: absolute;
   justify-content: center;
-  right: 15px;
-  top: 50px;
+  right: -100px; /**Se mueve hacia la derecha la imagen */
+  top: 30px;
 }
 
 .planetaInicio img {
   height: 700px;
-  transform: rotate(30deg);
 }
 
 .botonesInicio {
@@ -125,6 +181,9 @@ export default {
   text-align: center;
   width: 500px;
   height: 50px;
+  position: relative;
+  bottom: 80px; /**Posicion de los botones, cercanos al título */
+  right: 100px;
 }
 
 .botonTicket {
@@ -230,9 +289,6 @@ export default {
   stroke-dashoffset: 0.8;
 }
 
-.botonIniciar {
-  font: optional;
-}
 .fraseInicial {
   color: var(--color-blanco);
   overflow: hidden;
@@ -271,14 +327,43 @@ export default {
   margin: 0;
 }
 
-.fraseInicial .botonesFrase a {
-  text-decoration: none;
-  color: var(--color-blanco);
-  transition: color 0.3s;
+.scrollVerMas {
+  display: flex;
+  position: absolute;
+  left: 100px;
+  cursor: pointer;
+  bottom: 25px;
 }
 
-.fraseInicial .botonesFrase button:hover {
-  cursor: pointer;
+.scrollVerMas .iconoScroll {
+  height: 30px;
+  margin-right: 15px;
+<<<<<<< HEAD
+=======
+  animation: animacionBotonScroll 2s infinite; /**Duración animacion */
+}
+
+@keyframes animacionBotonScroll {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(
+      0
+    ); /**Los porcentajes son como paradas en la animación, en estos momentos el elemento no se moverá y estara en su posición original */
+  }
+  40% {
+    transform: translateY(
+      -15px
+    ); /**En este punto la animación, el elemento se moverá 10px hacia arriba */
+  }
+  60% {
+    transform: translateY(
+      -10px
+    ); /**El elemento se moverá hacia arriba 5 pixeles, este es un rebote mas pequeño */
+  }
+>>>>>>> master
 }
 
 .contenedorBotonIniciar {
@@ -287,9 +372,8 @@ export default {
   justify-content: center;
   align-items: center;
   bottom: 0;
-  margin-bottom: 10px;
+  bottom: 10px;
   left: 50%;
-  transform: translateX(50%);
 }
 
 .botonIniciar {
@@ -308,6 +392,44 @@ export default {
   border-radius: 50%; /* Hace que el botón sea circular */
   overflow: hidden;
 }
+<<<<<<< HEAD
+=======
+
+.botonIniciar:hover {
+  animation: jello-horizontal 0.9s both;
+}
+
+@keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+>>>>>>> master
 .botonIniciar:hover span {
   right: 50px;
 }
@@ -332,4 +454,36 @@ export default {
   background-color: var(--color-verde-hover);
   transition: 0.5s;
 }
+
+.redesSociales {
+  display: flex;
+  position: relative;
+  justify-content: end;
+<<<<<<< HEAD
+  top: 50px;
+  left: 130px;
+=======
+  bottom: 320px;
+  left: 110px;
+>>>>>>> master
+}
+
+.redesSociales i {
+  color: var(--color-blanco);
+  opacity: 0.7;
+<<<<<<< HEAD
+  margin-right: 30px;
+  font-size: 20px;
+  cursor: pointer;
+}
+=======
+  margin-right: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.redesSociales a {
+  background-color: transparent;
+}
+>>>>>>> master
 </style>
