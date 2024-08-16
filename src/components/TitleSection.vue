@@ -31,50 +31,24 @@
       </button>
     </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div class="scrollVerMas animate__animated animate__bounce">
-=======
-=======
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
     <div
       class="scrollVerMas animate__animated animate__bounce"
       @click="scrollToMedioSection"
     >
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
       <font-awesome-icon
         icon="angles-down"
         class="iconoScroll"
       ></font-awesome-icon>
       <p>Scrollea para ver más</p>
     </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
     <MedioSection ref="medioSection" />
 
->>>>>>> master
-=======
-
-    <MedioSection ref="medioSection" />
-
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
     <div class="contenedorBotonIniciar">
       <button
         type="submit"
         class="botonIniciar animate__animated animate__swing"
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         @click="scrollToMedioSection"
->>>>>>> master
-=======
-        @click="scrollToMedioSection"
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
       >
         <div class="icono">
           <font-awesome-icon icon="play" class="iconoFlecha" />
@@ -83,15 +57,6 @@
     </div>
 
     <div class="redesSociales">
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <i class="fa-brands fa-github"></i>
-      <i class="fa-brands fa-linkedin-in"></i>
-      <i class="fa-brands fa-whatsapp"></i>
-      <i class="fa-regular fa-envelope"></i>
-=======
-=======
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
       <a href="https://github.com/JaysonV145" target="_blank">
         <i class="fa-brands fa-github"></i
       ></a>
@@ -104,10 +69,6 @@
       <a href="mailto:vjaison30@gmail.com" target="_blank"
         ><i class="fa-regular fa-envelope"></i
       ></a>
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
     </div>
     <!--Datalist hace que esten las opciones abajo como del historial
     <input list="planetas" />
@@ -126,23 +87,10 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import MedioSection from "./MedioSection.vue";
-=======
-=======
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import MedioSection from "./MedioSection/MedioSection.vue";
 import MainLayout from "./MainLayout.vue";
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
 
 library.add(faMagnifyingGlass, faArrowLeft, faPlay, faAnglesDown, faGithubAlt);
 /*library.add(faArrowLeft);*/
@@ -151,11 +99,6 @@ export default {
   name: "TitleSection",
   components: {
     FontAwesomeIcon,
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
     MedioSection,
   },
   methods: {
@@ -163,10 +106,6 @@ export default {
       const medioSection = this.$refs.medioSection.$el;
       medioSection.scrollIntoView({ behavior: "smooth" });
     },
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
   },
 };
 </script>
@@ -372,11 +311,6 @@ export default {
 .scrollVerMas .iconoScroll {
   height: 30px;
   margin-right: 15px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
   animation: animacionBotonScroll 2s infinite; /**Duración animacion */
 }
 
@@ -400,10 +334,6 @@ export default {
       -10px
     ); /**El elemento se moverá hacia arriba 5 pixeles, este es un rebote mas pequeño */
   }
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
 }
 
 .contenedorBotonIniciar {
@@ -432,11 +362,6 @@ export default {
   border-radius: 50%; /* Hace que el botón sea circular */
   overflow: hidden;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
 
 .botonIniciar:hover {
   animation: jello-horizontal 0.9s both;
@@ -472,10 +397,6 @@ export default {
   }
 }
 
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
 .botonIniciar:hover span {
   right: 50px;
 }
@@ -505,32 +426,13 @@ export default {
   display: flex;
   position: relative;
   justify-content: end;
-<<<<<<< HEAD
-<<<<<<< HEAD
-  top: 50px;
-  left: 130px;
-=======
   bottom: 320px;
   left: 110px;
->>>>>>> master
-=======
-  bottom: 320px;
-  left: 110px;
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
 }
 
 .redesSociales i {
   color: var(--color-blanco);
   opacity: 0.7;
-<<<<<<< HEAD
-<<<<<<< HEAD
-  margin-right: 30px;
-  font-size: 20px;
-  cursor: pointer;
-}
-=======
-=======
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
   margin-right: 25px;
   font-size: 20px;
   cursor: pointer;
@@ -539,8 +441,4 @@ export default {
 .redesSociales a {
   background-color: transparent;
 }
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
 </style>
