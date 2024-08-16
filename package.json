@@ -15,17 +15,9 @@
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@mdi/font": "^7.4.47",
     "animate.css": "^4.1.1",
-<<<<<<< HEAD
     "ionicons": "^7.4.0",
     "vue": "^3.4.29",
     "vue-router": "^4.4.0"
-=======
-    "axios": "^1.7.4",
-    "ionicons": "^7.4.0",
-    "vue": "^3.4.29",
-    "vue-router": "^4.4.0",
-    "vuex": "^4.1.0"
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
