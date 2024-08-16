@@ -4,7 +4,14 @@
       <div
         v-if="currentSection === '' || currentSection === 'experience'"
         :key="'experience-' + currentSection"
-        :class="['titulo-inicio', { focus: currentSection === 'experience' }]"
+        :class="[
+          'titulo-inicio',
+          {
+            focus: currentSection === 'experience',
+            'move-right': currentSection === 'experience' && isExpanded,
+            'move-left': currentSection === 'experience' && !isExpanded,
+          },
+        ]"
       >
         <Experience
           :currentSection="currentSection"
@@ -16,7 +23,14 @@
       <div
         v-if="currentSection === '' || currentSection === 'sobreMi'"
         :key="'sobreMi-' + currentSection"
-        :class="['titulo-inicio', { focus: currentSection === 'sobreMi' }]"
+        :class="[
+          'titulo-inicio',
+          {
+            focus: currentSection === 'sobreMi',
+            'move-right': currentSection === 'sobreMi' && isExpanded,
+            'move-left': currentSection === 'sobreMi' && !isExpanded,
+          },
+        ]"
       >
         <SobreMi
           :currentSection="currentSection"
@@ -28,7 +42,14 @@
       <div
         v-if="currentSection === '' || currentSection === 'habilidades'"
         :key="'habilidades-' + currentSection"
-        :class="['titulo-inicio', { focus: currentSection === 'habilidades' }]"
+        :class="[
+          'titulo-inicio',
+          {
+            focus: currentSection === 'habilidades',
+            'move-right': currentSection === 'habilidades' && isExpanded,
+            'move-left': currentSection === 'habilidades' && !isExpanded,
+          },
+        ]"
       >
         <Habilidades
           :currentSection="currentSection"
@@ -59,13 +80,26 @@ export default {
   },
   setup() {
     const currentSection = ref("");
+    const isExpanded = ref(false);
 
     const toggleSection = (section) => {
-      currentSection.value = currentSection.value === section ? "" : section;
+      if (currentSection.value === section) {
+        isExpanded.value = !isExpanded.value;
+        if (!isExpanded.value) {
+          // Si se hace clic en "Ver menos", se espera un pequeño tiempo antes de colapsar el componente
+          setTimeout(() => {
+            currentSection.value = "";
+          }, 500); // Ajusta el tiempo para que coincida con la animación
+        }
+      } else {
+        currentSection.value = section;
+        isExpanded.value = true;
+      }
     };
 
     return {
       currentSection,
+      isExpanded,
       toggleSection,
     };
   },
@@ -96,6 +130,35 @@ main {
   margin-top: 150px;
   position: relative;
   transform: translateX(-10%); /*Centrado */
+  transition: transform 0.5s ease-in-out;
+}
+
+.titulo-inicio.focus {
+  animation: focusAnimation 2s ease forwards;
+}
+
+@keyframes focusAnimation {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.2) translateY(-10px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.move-right {
+  transform: translateX(
+    100%
+  ); /* Mueve el componente seleccionado a la derecha */
+}
+
+.move-left {
+  transform: translateX(
+    0
+  ); /* Retorna el componente seleccionado a su posición original */
 }
 
 .titulo-inicio h1 {
@@ -168,17 +231,17 @@ main {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.5 ease-in-out;
 }
 
 .fade-enter-from,
 .fade-leave-to {
-  opacity: 0;
+  transition: opacity 0.5 ease-in-out;
 }
 
 /* Animación de enfoque para el componente seleccionado */
 .focus {
-  animation: focusAnimation 0.5s ease forwards;
+  animation: focusAnimation 2s ease forwards; /*Animación de foco poco a poco*/
 }
 
 @keyframes focusAnimation {
@@ -186,10 +249,10 @@ main {
     transform: scale(1) translateY(0); /* Sin cambio en el tamaño o posición inicial */
   }
   50% {
-    transform: scale(1.1) translateY(-5px); /* Aumenta el tamaño y eleva ligeramente */
+    transform: scale(1.2) translateY(-10px); /* Aumenta el tamaño y eleva ligeramente */
   }
   100% {
-    transform: scale(1.05) translateY(0); /* Tamaño final y posición original */
+    transform: scale(1) translateY(0); /* Tamaño final y posición original */
   }
 }
 
