@@ -13,13 +13,6 @@
 
 :root {
   --color-oscuro-fondo: #050D21;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  --color-oscuro-fondo2: #878ea1;
->>>>>>> master
-=======
->>>>>>> 6d7956a (Se han implementado cambios en el componente MedioSection, puesto que se han agregado e individualizado los 3 componentes de secciones Sobre mi, experiencia y habilidades. Modificación de estilos y lógica.)
   --color-claro-fondo: #FFFDFB;
   --color-verde:#015038;
   --color-blanco:#FFFDFB;
